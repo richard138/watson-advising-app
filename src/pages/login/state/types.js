@@ -1,0 +1,3 @@
+export const SET_LOADING = 'SET_LOADING';
+export const SET_TOKEN = 'SET_TOKEN';
+export const SET_LOGIN_SUCCESSFUL = 'SET_LOGIN_SUCCESSFUL';
