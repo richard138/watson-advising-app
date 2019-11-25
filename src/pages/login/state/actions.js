@@ -5,34 +5,23 @@ import SeleniumServer from `selenium-webdriver`
 
 
 export const PostLogin = (credentials, token) =>{
-  return async (dispatch) =>{
-      try{
-          var s = SeleniumServer
-        const response = await fetch('https://uncw.instructure.com/login/ldap', {
-            method: 'post',
-            body: JSON.stringify({
-                "pseudonym_session[unique_id]": credentials.UserId,
-                "pseudonym_session[password]": credentials.Password,
-                "authenticity_token": token,
-            }),
-            credentials: 'same-origin',
-            mode: "no-cors",
-            headers: {
-                "host": 'uncw.instructure.com',
-                "Content-Type": 'application/x-www-form-urlencoded',
-                "Origin": 'https://uncw.instructure.com',
-                "Referer": 'https://uncw.instructure.com/login/ldap',
-            }
-        });
-        console.log(response)
-     //  return {type: types.SET_LOGIN_SUCCESSFUL, payload:true}
-     }
-     catch(exception){
-        throw(exception)
+    return async (dispatch) =>{
+        try{
+            //Right now this will ALWAYS return a 200. Need to check somewhere else for my some specific creds
+            const cors_help = 'https://cors-anywhere.herokuapp.com/';
+            const auth_token = ''; // Generate this live, bad practice to leave in git
+            const url = 'https://canvas.instructure.com/api/v1/courses?access_token='+auth_token;
+            const base_url = 'https://canvas.instructure.com/api/v1/courses';
+            const response = await fetch(cors_help+url);
+            console.log(response.status)
+            //  return {type: types.SET_LOGIN_SUCCESSFUL, payload:true}
+        }
+        catch(exception){
+            throw(exception)
+        }
+
     }
-   
-  }
-}
+};
 
 export const EstablishSession = () =>{
   return async (dispatch) =>{
