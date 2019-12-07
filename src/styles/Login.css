@@ -1,22 +1,42 @@
-body{
-    background: url('../images/MortonHall.jpg');
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-.watson-chat-component{
-    background: url('../images/loginImage.jpg');
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
 
 .header-style{
     -webkit-text-stroke: 1px black;
+    text-shadow:
+        3px 3px 0 #ffffff,
+      -1px -1px 0 #ffffff,  
+       1px -1px 0 #ffffff,
+       -1px 1px 0 #ffffff,
+        1px 1px 0 #ffffff;
+    color: #037f80;
+    font-size: 5em;
+    font-family: "Patio";
+    font-variant: small-caps;
+
+}
+
+img.bg {
+    /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+  
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+  
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+.watson-header-style{
+    -webkit-text-stroke: 1px black;
     color: yellow;
+    font-size: 7em;
+    background-color: "#006666";
+    text-align:"center";
+    font-variant:"small-caps";
     text-shadow:
         3px 3px 0 #000,
       -1px -1px 0 #000,  
@@ -24,11 +44,63 @@ body{
        -1px 1px 0 #000,
         1px 1px 0 #000;
 }
-.header-position{
-    margin-top: 5%;
-    margin-left: 25%;
+
+h2{
+    -webkit-text-stroke: 1px black;
+    text-shadow:
+        3px 3px 0 #000,
+      -1px -1px 0 #000,  
+       1px -1px 0 #000,
+       -1px 1px 0 #000,
+        1px 1px 0 #000;
 }
 
-h1{
-    font-size: 7em;
+
+.watson-header-position{
+    margin-top: 1%;
+    margin-left: 37%;
+}
+
+li{
+    padding-top: 1.2em;
+}
+
+.watson-chat-position{
+    margin-top: 0%;
+    margin-left: 17%;
+    margin-bottom: 2%;
+}
+
+.header-position{
+    margin-top: 2%;
+    margin-left: 27%;
+}
+
+.uncw-logo{
+    margin-top: 1%;
+    margin-left: 35%;
+    width: 30%;
+    height: 20%;
+}
+
+.login-component{
+    border: '1px solid black';
+}
+.footer-style{
+    padding-bottom: 0px;
+    text-align: center;
+    border-top: 1px solid grey;
+    position:absolute;
+    opacity: 50%;
+    left:0;
+    bottom:0;
+    right:0;
+}
+
+.watson-aside {
+    min-height: 25em;
+    min-width: 26em;
+    margin-bottom: 50%;
+    float: right;
+    background-color: white;
 }

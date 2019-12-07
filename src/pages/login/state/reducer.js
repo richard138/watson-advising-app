@@ -12,8 +12,6 @@ export default (state=INITIAL_STATE, {type, payload}) => {
             return {...state, loading: payload };
         case types.SET_LOGIN_SUCCESSFUL:
             return {...state, loginSuccessful: payload };
-        case types.SET_TOKEN:
-            return {...state, token: payload };
         default:
             return state;
     }
