@@ -10,6 +10,13 @@ import {WatsonChat} from './pages/watsonchat/WatsonChat';
 
 const store = configureStore()
 
+//Description:
+//This is the main file of the react project. This is where the virtual DOM is intansiated and it's render
+//method is called. In react web-applications there is techinically only one page on the website.
+//Different components are rendered on this page to give the appearence of different pages (react-router-dom)
+// Author: Richard Chambers
+
+
 ReactDOM.render(
     <Router>
         <Provider store={store}>

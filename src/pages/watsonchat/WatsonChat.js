@@ -9,33 +9,23 @@ import { withRouter } from 'react-router-dom';
 import { SendMessage} from './state/actions'
 import { connect } from 'react-redux';
 import {CustomChat} from './CustomChat'
-import MortonHall from '../../images/HoggardHall.jpg'
-import SammyCartoon  from '../../images/SammyCartoon.jpg'
+import HoggardHall from '../../images/HoggardHall.jpg'
 import watsonMan from '../../images/watsonMan.webp'
 import {Button} from 'semantic-ui-react';
 
- import '../../styles/Login.css'
+ import '../../styles/style.css'
 
 
 class WatsonChatContainer extends React.Component{
-
-
-    componentDidMount() {
-        const service = new AssistantV1({
-            version: '2019-09-01',
-            authenticator: new IamAuthenticator({
-              apikey: 'N7vyHwBRprtCxqIb-VhSyDOSPXFabBKbG7-BJbXHa8Xn',
-            }),
-            url: 'https://gateway-wdc.watsonplatform.net/assistant/api/',
-          });  
-        this.setState({service: service})
-
-        console.log(this.props)
-
-      }
-    
-    
+  // Description: This is the parent component for the watson chat page.
+  // This component serves as the parent for the react-simple-chat component (<Chat/>) which is effectively the chat window.
+  // The react-simple-chat also acts as a parent compnent for the <CustomChat/> component.
+  // The <ThemeProvidor/> component acts as a Higher Order Class for the <Chat/> componenet and allows the theme of the componenet
+  // to be changed
+  // Author: Richard Chambers (react-simple-chatbot: <Chat/>, styled-components: <ThemeProvider/>)
+  
       GetResponse = (userInput) => {
+        //invokes the SendMessage() action located in watsonChat/state/actions
             this.props.SendMessage(userInput, this.state.service)
             return this.props.watsonResponse
       }
@@ -45,6 +35,9 @@ class WatsonChatContainer extends React.Component{
       }
 
       render() {
+        //render method is a React.Component method. Returns JSX which is what is rendered on screen.
+
+        //Instanciate theme object to pass as theme prop to <ThemeProvider/>
         const theme = {
           background: '#f5f8fb',
           fontFamily: 'Helvetica Neue',
@@ -57,6 +50,7 @@ class WatsonChatContainer extends React.Component{
           userFontColor: '#4a4a4a',
 
         };
+        //stand up new Assistant class with IBM credentials
         const service = new AssistantV1({
             version: '2019-09-01',
             authenticator: new IamAuthenticator({
@@ -66,10 +60,11 @@ class WatsonChatContainer extends React.Component{
           });
         return ( 
             <React.Fragment>
-                <img src={MortonHall} alt={"Morton"} className={"bg"}/>
-                {/* <div className={"watson-header-position"}>
-                    <h1 className={"watson-header-style"}>Watson Chat</h1>
-                </div> */}
+                <img src={HoggardHall} alt={"HoggardHall"} className={"bg"}/>
+                {/* image source = https://www.flickr.com/photos/29381982@N08/26199142100  */}
+                
+                {/* All images used in the project have been labled for at leat non-commercial reuse */}
+
                 <div style={{maxWidth:"70em", marginLeft: "17%", marginTop: "0%"}}>
                 <h2 class="ui top attached header" style={{backgroundColor: "#006666", color:"Yellow", textAlign:"center", fontSize:"7em", fontVariant:"small-caps"}}>UNCW <br/>Watson Chat</h2>
                     <div class="ui attached segment" style={{fontWeight:"bold", fontSize:"1.9em" ,paddingTop:"3em", border: '5px solid yellow'}}>

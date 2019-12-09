@@ -4,11 +4,11 @@ import {submit} from 'redux-form'
 import { withRouter } from 'react-router-dom';
 
 import {LoginForm} from "./components/LoginForm"
-// import {LOGIN_FORM_NAME} from '../../common/FormEnum'
 import {PostLogin, EstablishSession} from './state/actions'
-import '../../styles/Login.css'
 import UNCW from '../../images/UNCW.png'
-import MortonHall from '../../images/FisherUnion.jpg'
+import FisherUnion from '../../images/FisherUnion.jpg'
+
+import '../../styles/style.css'
 
 
 class LoginContainer extends Component{
@@ -18,28 +18,27 @@ class LoginContainer extends Component{
       }
 
     routeChange() {
+        //function that calls this.props.history.push which is a react-router-dom function that changes the currently
+        //rendered component (changes pages)
         let path = '/watsonchat';
         this.props.history.push(path);
       }
 
-    async componentDidMount(){
-        await this.props.EstablishSession()
-    }
-
     SubmitForm = () =>{
-        // this.props.submit(LOGIN_FORM_NAME)
         this.routeChange() 
     }
 
-    handleSubmit = (formValues) =>{
-        console.log(formValues)
-    }
-
     render(){
+        //render method is a React.Component method. Returns JSX which is what is rendered on screen.
         return(
             <Fragment className={"login-component"}>
-            <img src={UNCW} className={"uncw-logo"}/>
-            <img src={MortonHall} alt={"Morton"} className={"bg"}/>
+            <img src={UNCW} className={"uncw-logo"} alt={"uncw logo"}/>
+            {/* image source: https://commons.wikimedia.org/wiki/File:Uncwlogo.png */}
+            <img src={FisherUnion} alt={"FisherUnion"} className={"bg"}/>
+            {/* image source: https://www.flickr.com/photos/asalexander/3179747964 */}
+
+            {/* All images used in the project have been labled for at leat non-commercial reuse */}
+
             <div className={"header-position"}>
                 <h1 className={"header-style"}>Online Academic Adviser</h1>
             </div>

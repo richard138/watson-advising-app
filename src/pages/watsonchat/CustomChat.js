@@ -2,6 +2,10 @@ import React from 'react';
 import { Loading } from 'react-simple-chatbot';
 
 class CustomChat extends React.Component{
+  // The <CustomChat/> component overrides the default react-simple-ChatBot message component.
+  // This is the prefered method for making asynchronous api calls.
+  // React-simple-chatbot Docs: https://lucasbassetti.com.br/react-simple-chatbot/#/docs
+
     constructor(props) {
     super(props);
 
@@ -15,7 +19,6 @@ class CustomChat extends React.Component{
 
   }
 
-
     async componentDidMount() {
         const { steps } = this.props;
         if(!this.state.sent){
@@ -28,10 +31,6 @@ class CustomChat extends React.Component{
        
       }
          
-
-         
-      
-
       readyStateChange(text) {
           if (text) {
             this.setState({ loading: false, result: text, sent: true });
@@ -41,16 +40,15 @@ class CustomChat extends React.Component{
       }
 
       render() {
-        console.log(this.state.loading)
-        if(this.state.loading){
+        if(this.state.loading) {
           return(
             <Loading/>
             )
-        }else{
+        }
+        else {
           return(
             <div>{this.state.result}</div>
           )
-
         }
 
     }
